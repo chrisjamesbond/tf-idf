@@ -6,7 +6,7 @@
 #tr -cd '[:alpha:]\n': Removes all characters except for alphabetic characters and newlines.
 #tr '[:upper:]' '[:lower:]': Converts all uppercase letters to lowercase.
 #> documents/~/books/2701_clean.txt: Redirects the final output to a new file (2701_clean.txt) in the books directory.
-
+mkdir -p documents
 wget -qO- https://www.gutenberg.org/ebooks/2701.txt.utf-8 | tr -cd '[:alpha:][:space:]' | tr '[:upper:]' '[:lower:]' > documents/2701.txt
 wget -qO- https://www.gutenberg.org/ebooks/1513.txt.utf-8 | tr -cd '[:alpha:][:space:]' | tr '[:upper:]' '[:lower:]' > documents/1513.txt
 wget -qO- https://www.gutenberg.org/ebooks/1342.txt.utf-8 | tr -cd '[:alpha:][:space:]' | tr '[:upper:]' '[:lower:]' > documents/1342.txt
