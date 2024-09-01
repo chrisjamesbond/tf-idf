@@ -2,11 +2,15 @@
 
 # Top 100 EBooks last 30 days from https://www.gutenberg.org/browse/scores/top#books-last30
 
-#wget -qO-: Downloads the file and outputs it directly to standard output (-q suppresses the output, and -O- sends the content to stdout instead of saving it to a file).
-#tr -cd '[:alpha:]\n': Removes all characters except for alphabetic characters and newlines.
-#tr '[:upper:]' '[:lower:]': Converts all uppercase letters to lowercase.
-#> documents/~/books/2701_clean.txt: Redirects the final output to a new file (2701_clean.txt) in the books directory.
+# wget -qO-: downloads the file and outputs it directly to standard output (-q suppresses the output, and -O- sends the content to stdout instead of saving it to a file).
+# tr -cd '[:alpha:]\n': removes all characters except for alphabetic characters and newlines.
+# tr '[:upper:]' '[:lower:]': converts all uppercase letters to lowercase.
+# > documents/~/books/2701.txt: Redirects the final output to a new file in the documents directory.
+
+# create documents directory if it it's not present
 mkdir -p documents
+
+# get books!
 wget -qO- https://www.gutenberg.org/ebooks/2701.txt.utf-8 | tr -cd '[:alpha:][:space:]' | tr '[:upper:]' '[:lower:]' > documents/2701.txt
 wget -qO- https://www.gutenberg.org/ebooks/1513.txt.utf-8 | tr -cd '[:alpha:][:space:]' | tr '[:upper:]' '[:lower:]' > documents/1513.txt
 wget -qO- https://www.gutenberg.org/ebooks/1342.txt.utf-8 | tr -cd '[:alpha:][:space:]' | tr '[:upper:]' '[:lower:]' > documents/1342.txt
